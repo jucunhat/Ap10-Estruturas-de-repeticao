@@ -1,29 +1,52 @@
---Faça um programa que leia 6 valores. Estes valores serão somente negativos 
---ou positivos (desconsidere os valores nulos). A seguir, mostre a 
---quantidade de valores positivos digitados.
+--Leia 2 valores inteiros X e Y. A seguir, calcule e mostre a soma dos 
+--números impares entre eles.
 DO
 $$
 DECLARE
 	valores INT[] := ARRAY[
-	valor_aleatorio_entre(-50, 50),
-	valor_aleatorio_entre(-50, 50),
-	valor_aleatorio_entre(-50, 50),
-	valor_aleatorio_entre(-50, 50),
-	valor_aleatorio_entre(-50, 50),
-	valor_aleatorio_entre(-50, 50)
+	valor_aleatorio_entre(20, 50),
+	valor_aleatorio_entre(20, 50)
 	];
 	valor INT;
-	contagem INT := 0;
+	soma INT := 0;
 BEGIN
 	FOREACH valor IN ARRAY valores LOOP
 		RAISE NOTICE '%', valor;
-	IF valor > 0 THEN
-		contagem = contagem + 1;
+	IF valor % 2 = 1 THEN
+		soma = soma + valor; 
 	END IF;
 	END LOOP;
-RAISE NOTICE 'O número de positivos é: %', contagem;
+RAISE NOTICE 'A soma dos ímpares é: %', soma;
 END;
 $$
+
+
+--Faça um programa que leia 6 valores. Estes valores serão somente negativos 
+--ou positivos (desconsidere os valores nulos). A seguir, mostre a 
+--quantidade de valores positivos digitados.
+-- DO
+-- $$
+-- DECLARE
+-- 	valores INT[] := ARRAY[
+-- 	valor_aleatorio_entre(-50, 50),
+-- 	valor_aleatorio_entre(-50, 50),
+-- 	valor_aleatorio_entre(-50, 50),
+-- 	valor_aleatorio_entre(-50, 50),
+-- 	valor_aleatorio_entre(-50, 50),
+-- 	valor_aleatorio_entre(-50, 50)
+-- 	];
+-- 	valor INT;
+-- 	contagem INT := 0;
+-- BEGIN
+-- 	FOREACH valor IN ARRAY valores LOOP
+-- 		RAISE NOTICE '%', valor;
+-- 	IF valor > 0 THEN
+-- 		contagem = contagem + 1;
+-- 	END IF;
+-- 	END LOOP;
+-- RAISE NOTICE 'O número de positivos é: %', contagem;
+-- END;
+-- $$
 
 -- Faça um programa que mostre os números pares entre 1 e 100, inclusive.
 -- DO
