@@ -1,24 +1,55 @@
---Leia 2 valores inteiros X e Y. A seguir, calcule e mostre a soma dos 
---números impares entre eles.
+--Leia um conjunto não determinado de pares de valores M e N 
+--(parar quando algum dos valores for menor ou igual a zero). 
+--Para cada par lido, mostre a sequência do menor até o maior e a 
+--soma dos inteiros consecutivos entre eles (incluindo o N e M).
 DO
 $$
 DECLARE
-	valores INT[] := ARRAY[
-	valor_aleatorio_entre(20, 50),
-	valor_aleatorio_entre(20, 50)
-	];
-	valor INT;
+	valor_a INT := valor_aleatorio_entre(1, 100);
+	valor_b INT := valor_aleatorio_entre(1, 100);
 	soma INT := 0;
 BEGIN
-	FOREACH valor IN ARRAY valores LOOP
-		RAISE NOTICE '%', valor;
-	IF valor % 2 = 1 THEN
-		soma = soma + valor; 
+	IF valor_a > valor_b THEN
+		RAISE NOTICE 'Valor menor: %', valor_b;
+		RAISE NOTICE 'Valor maior: %', valor_a;
+		FOR i IN valor_b..valor_a LOOP
+			RAISE NOTICE '%', i;
+			soma = soma + i;
+		END LOOP;
+		RAISE NOTICE 'soma: %', soma;
+	ELSE
+		RAISE NOTICE 'Valor menor: %', valor_a;
+		RAISE NOTICE 'Valor maior: %', valor_b;
+		FOR i IN valor_a..valor_b LOOP
+			RAISE NOTICE '%', i;
+			soma = soma + i;
+		END LOOP;
+		RAISE NOTICE 'soma: %', soma;
 	END IF;
-	END LOOP;
-RAISE NOTICE 'A soma dos ímpares é: %', soma;
 END;
 $$
+
+--Leia 2 valores inteiros X e Y. A seguir, calcule e mostre a soma dos 
+--números impares entre eles.
+-- DO
+-- $$
+-- DECLARE
+-- 	valores INT[] := ARRAY[
+-- 	valor_aleatorio_entre(20, 50),
+-- 	valor_aleatorio_entre(20, 50)
+-- 	];
+-- 	valor INT;
+-- 	soma INT := 0;
+-- BEGIN
+-- 	FOREACH valor IN ARRAY valores LOOP
+-- 		RAISE NOTICE '%', valor;
+-- 	IF valor % 2 = 1 THEN
+-- 		soma = soma + valor; 
+-- 	END IF;
+-- 	END LOOP;
+-- RAISE NOTICE 'A soma dos ímpares é: %', soma;
+-- END;
+-- $$
 
 
 --Faça um programa que leia 6 valores. Estes valores serão somente negativos 
